@@ -17,9 +17,9 @@ export default async function Page() {
                 <p className="font-medium text-[#3c3c3c] text-2xl">פרויקט הנצחה לזכרו של סרן אמיר צור</p>
             </div>
         </div>
-        <div className="flex w-full h-full">
+        <div className="flex w-full h-full flex-col-reverse lg:flex-row">
             <HomePageBullets />
-            <div className="w-full border flex items-center justify-center">Image</div>
+            <div className="w-full border flex items-center justify-center h-full">Image</div>
         </div>
         {/* <Posts posts={posts} /> */}
 
@@ -28,7 +28,7 @@ export default async function Page() {
 
 
 const HomePageBullets = () => {
-    return <p className="w-full border">
+    return <p className="w-full border h-full">
         אתר זה מוקדש לזכרו של סרן אמיר צור, שנהרג ב-7 באוקטובר 2023 בלחימה בכפר עזה.
         <br />
         אמיר נולד ב-1994 בכפר עזה וגר בעיר שער עזה.
