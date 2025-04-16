@@ -13,8 +13,8 @@ const hebrew = Heebo({
 });
 
 export const metadata: Metadata = {
-  title: "יעקב לא נפרד",
-  description: "לזכרו של יעקב",
+  title: "שלא נצא בורים",
+  description: "פרויקט הנצחה לזכרו של סרן אמיר צור",
   icons: {
     icon: [
       {
