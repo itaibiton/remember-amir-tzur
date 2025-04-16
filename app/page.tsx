@@ -1,4 +1,3 @@
-import Header from "./components/Header";
 import ContentSection from "./components/ContentSection";
 import PointsSection from "./components/PointsSection";
 import MapSection from "./components/MapSection";

@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import { Image as ImageIcon } from 'lucide-react';
 import CarouselSlider from './CarouselSlider';
 
