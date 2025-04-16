@@ -137,7 +137,7 @@ export default function Home() {
     <div className="flex flex-col bg-[#fcfcf7] min-h-fit">
       <Header />
       <div className="min-h-screen w-full items-start flex flex-col px-8 md:px-32 pt-[12rem]" dir="rtl">
-        <div className="flex flex-col-reverse md:flex-row w-full  gap-16 justify-between">
+        <div className="flex flex-col-reverse md:flex-row w-full gap-4 md:gap-16 justify-between">
           <div className="flex flex-col w-full md:w-1/2 gap-8 pb-8">
             {STATIC_CONTENT.map((item, _) => <div key={`${_}-item-content`} className="flex flex-col">
               <p className="font-medium">{item?.title}</p>
@@ -145,7 +145,7 @@ export default function Home() {
             </div>)}
             <p>יהי זכרו נצור בליבנו לעד.</p>
           </div>
-          <div className="flex flex-col h-fit w-full md:w-1/2  items-center">
+          <div className="flex flex-col h-fit w-full md:w-1/2 items-center">
             <Image alt="amir-logo" src="/Amir-hero-image.png" width="552" height="575" />
           </div>
         </div>
@@ -183,8 +183,8 @@ const Header = () => {
         </svg>
       </div>
       <div className="flex flex-col">
-        <h1 className="text-[2.625rem] leading-[3.125rem] text-[#1a1c20] font-bold">&quot;שלא נצא בורים&quot;</h1>
-        <p className="text-[1.5rem] font-medium text-[#3c3c3c]">פרויקט הנצחה לזכרו של סרן אמיר צור</p>
+        <h1 className="text-2xl md:text-[2.625rem] leading-[3.125rem] text-[#1a1c20] font-bold">&quot;שלא נצא בורים&quot;</h1>
+        <p className="text-lg md:text-[1.5rem] font-medium text-[#3c3c3c]">פרויקט הנצחה לזכרו של סרן אמיר צור</p>
       </div>
     </div>
   );
@@ -192,7 +192,7 @@ const Header = () => {
 
 const PointCard = ({ point }: { point: { title: string, link: string } }) => {
   return (
-    <Link href={point?.link} className="flex border border-[#E0DFDC] bg-[#F7F6F2] rounded-[24px] py-4 px-6 gap-2 text-lg">
+    <Link href={point?.link} className="flex border border-[#E0DFDC] bg-[#F7F6F2] rounded-[24px] py-4 px-6 gap-2 text-base md:text-lg">
       <MarkerSvg />
       <p>{point?.title}</p>
     </Link>
@@ -202,7 +202,7 @@ const PointCard = ({ point }: { point: { title: string, link: string } }) => {
 const ExternalLinkCard = ({ link }: { link: { title: string, description: string, link: string } }) => {
   return (
     <Link target="_blank" href={link?.link} className="flex flex-col border border-[#E0DFDC] bg-[#F7F6F2] rounded-[24px] p-4 gap-2">
-      <p className="text-[#3c3c3c] text-base underline">{link?.title}</p>
+      <p className="text-[#3c3c3c] text-sm md:text-base underline">{link?.title}</p>
       <p className="text-[#888989] text-sm">{link?.description}</p>
     </Link>
   )
