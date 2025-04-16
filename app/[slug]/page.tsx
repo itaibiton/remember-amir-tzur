@@ -3,16 +3,20 @@ import Footer from "../components/Footer"
 import Divider from "../components/Divider"
 import MapSection from "../components/MapSection"
 import PointsSection from "../components/PointsSection"
+import CarouselDemo from "../components/CarouselDemo"
 export default function Page() {
     return <div className="flex flex-col bg-[#fcfcf7] min-h-fit w-full">
-        <div className="min-h-screen w-full items-start flex flex-col px-8 md:px-32 pt-[12rem]" dir="rtl">
-            <div className="flex flex-col md:flex-row gap-8 mb-10">
-                <div className="flex flex-col gap-4 w-full md:w-1/2">
+        <div className="min-h-screen w-full items-start flex flex-col px-8 xl:px-32 pt-[12rem]" dir="rtl">
+            <div className="flex flex-col xl:flex-row gap-8 mb-10">
+                <div className="flex flex-col gap-4 w-full xl:w-1/2">
                     <AboutSection />
                 </div>
-                <div className="grid grid-cols-2 gap-4 w-full md:w-1/2 ">
+                <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 w-full xl:w-1/2 ">
+                    <div className="flex xl:hidden">
+                        <CarouselDemo />
+                    </div>
                     {[1, 2, 3, 4].map((item) => (
-                        <div className="flex flex-col gap-2 w-full h-full" key={item}>
+                        <div className="flex-col gap-2 w-full h-full hidden xl:flex" key={item}>
                             <div className="rounded-lg bg-gray-200 p-4 flex items-center justify-center h-full w-full">
                                 <Image className="w-8 h-8 text-[#857F7A]" />
                             </div>
