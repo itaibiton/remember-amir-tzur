@@ -9,7 +9,6 @@ import Divider from "./components/Divider";
 export default function Home() {
   return (
     <div className="flex flex-col bg-[#fcfcf7] min-h-fit">
-      <Header />
       <div className="min-h-screen w-full items-start flex flex-col px-8 md:px-32 pt-[12rem]" dir="rtl">
         <ContentSection />
         <Divider />
