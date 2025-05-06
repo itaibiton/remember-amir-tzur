@@ -12,7 +12,7 @@ const ContentSection = () => {
                         <p>{item?.content}</p>
                     </div>
                 ))}
-                <p>יהי זכרו נצור בליבנו לעד.</p>
+                {/* <p>יהי זכרו נצור בליבנו לעד.</p> */}
             </div>
             <div className="flex flex-col h-fit w-full md:w-1/2 items-center">
                 <Image alt="amir-logo" src="/Amir-hero-image.png" width="552" height="575" />
