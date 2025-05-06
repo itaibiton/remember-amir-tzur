@@ -1,9 +1,12 @@
-import { Image } from "lucide-react"
+import { Image as ImageIcon } from "lucide-react"
 import Footer from "../components/Footer"
 import Divider from "../components/Divider"
 import MapSection from "../components/MapSection"
 import PointsSection from "../components/PointsSection"
 import CarouselDemo from "../components/CarouselDemo"
+import { POINTS } from "../data/constants";
+
+
 export default function Page() {
     return <div className="flex flex-col bg-[#fcfcf7] min-h-fit w-full">
         <div className="min-h-screen w-full items-start flex flex-col px-8 xl:px-32 pt-[12rem]" dir="rtl">
@@ -18,7 +21,7 @@ export default function Page() {
                     {[1, 2, 3, 4].map((item) => (
                         <div className="flex-col gap-2 w-full h-full hidden xl:flex" key={item}>
                             <div className="rounded-lg bg-gray-200 p-4 flex items-center justify-center h-full w-full">
-                                <Image className="w-8 h-8 text-[#857F7A]" />
+                                <ImageIcon className="w-8 h-8 text-[#857F7A]" />
                             </div>
                             <p className="text-xs text-[#555555]">טקסט קצר עם הסבר על התמונה</p>
                         </div>
@@ -27,7 +30,7 @@ export default function Page() {
             </div>
             <Divider />
             <PointsSection />
-            <MapSection />
+            <MapSection points={POINTS} />
             <Divider />
             <Footer />
         </div>

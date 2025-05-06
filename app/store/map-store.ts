@@ -168,9 +168,7 @@ export const useMapStore = create<MapState & MapActions>((set, get) => ({
         const { isRTLPluginInitialized } = get();
         if (isRTLPluginInitialized) return;
 
-        // @ts-ignore - the mapboxgl types don't include the RTL plugin
         if (!mapboxgl.getRTLTextPluginStatus || mapboxgl.getRTLTextPluginStatus() === 'unavailable') {
-            // @ts-ignore
             mapboxgl.setRTLTextPlugin(
                 'https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.3/mapbox-gl-rtl-text.js',
                 null!,
@@ -215,7 +213,7 @@ export const useMapStore = create<MapState & MapActions>((set, get) => ({
 
         // Set Hebrew for all text layers
         const layers = mapInstance.getStyle().layers;
-        layers.forEach((layer: any) => {
+        layers.forEach((layer: mapboxgl.Layer) => {
             if (layer.type === 'symbol' &&
                 mapInstance.getLayoutProperty(layer.id, 'text-field') !== undefined) {
                 try {
@@ -229,18 +227,20 @@ export const useMapStore = create<MapState & MapActions>((set, get) => ({
                         ]);
                     }
                 } catch (e) {
+                    console.error(e);
                     // Silently handle errors for layers that don't support text-field
                 }
             }
         });
 
         // Force RTL text direction for all symbol layers
-        layers.forEach((layer: any) => {
+        layers.forEach((layer: mapboxgl.Layer) => {
             if (layer.type === 'symbol') {
                 try {
                     mapInstance.setLayoutProperty(layer.id, 'text-letter-spacing', 0.1);
                 } catch (e) {
                     // Silently handle errors for layers that don't support text-letter-spacing
+                    console.error(e);
                 }
             }
         });

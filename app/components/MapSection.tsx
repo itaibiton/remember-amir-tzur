@@ -28,14 +28,8 @@ const MapSection = ({ points }: { points: Point[] }) => {
     const map = useRef<mapboxgl.Map | null>(null);
 
     const {
-        setMapInstance,
         initializeRTLPlugin,
         customizeMapLayers,
-        addMarker,
-        clearMarkers,
-        flyTo,
-        easeTo,
-        resetMap
     } = useMapStore();
 
     const center = useMemo(() => {
@@ -125,7 +119,7 @@ const MapSection = ({ points }: { points: Point[] }) => {
             markers.forEach(marker => marker.remove());
             map.current?.remove();
         };
-    }, [center, points]);
+    }, [center, points, initializeRTLPlugin, customizeMapLayers]);
 
     return (
         <div className="w-full h-[524px] rounded-[24px] flex items-center justify-center mb-10 overflow-hidden ">
