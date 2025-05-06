@@ -12,7 +12,7 @@ const Header = () => {
                 </div>
                 <div className="flex flex-col">
                     <h1 className="text-2xl md:text-[2.625rem] leading-[3.125rem] text-[#1a1c20] font-bold">&quot;שלא נצא בורים&quot;</h1>
-                    <p className="text-lg md:text-[1.5rem] font-medium text-[#3c3c3c]">פרויקט הנצחה לזכרו של סרן אמיר צור</p>
+                    <p className="text-lg md:text-[1.5rem] font-medium text-[#3c3c3c]">פרויקט הנצחה ברוחו של אמיר צור</p>
                 </div>
             </Link>
 

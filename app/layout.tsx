@@ -16,7 +16,7 @@ const hebrew = Heebo({
 
 export const metadata: Metadata = {
   title: "שלא נצא בורים",
-  description: "פרויקט הנצחה לזכרו של סרן אמיר צור",
+  description: "פרויקט הנצחה ברוחו של אמיר צור",
   icons: {
     icon: [
       {
