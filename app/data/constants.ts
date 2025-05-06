@@ -165,7 +165,8 @@ export const POINTS: Point[] = [
         location: {
             lat: '32.8706',
             long: '35.5192'
-        }
+        },
+        disabled: true
     },
     {
         title: 'הר עצמון',

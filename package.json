@@ -9,16 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mapbox/mapbox-gl-language": "^1.0.1",
+    "@types/mapbox-gl": "^3.4.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.488.0",
-    "mapbox-gl": "^3.11.1",
+    "mapbox-gl": "^1.13.3",
     "next": "15.3.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-mapbox-gl": "^5.1.1",
+    "zustand": "^5.0.4"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
+    "@types/mapbox-gl": "^3.4.1",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

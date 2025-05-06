@@ -1,27 +1,76 @@
-'use client';
+"use client";
 
-import React, { useEffect, useMemo, useRef } from 'react';
+import React, { useEffect, useRef, useMemo } from 'react';
 import mapboxgl, { LngLatLike } from 'mapbox-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
 import { Point } from './PointCard';
 import ReactDOMServer from 'react-dom/server';
+import { useMapStore } from '../store/map-store';
 import { MapPin } from 'lucide-react';
+import MapboxLanguage from '@mapbox/mapbox-gl-language';
+
+const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN!;
+
+const initializeRTLTextPlugin = () => {
+    // @ts-ignore - the mapboxgl types don't include the RTL plugin
+    if (!mapboxgl.getRTLTextPluginStatus || mapboxgl.getRTLTextPluginStatus() === 'unavailable') {
+        // @ts-ignore
+        mapboxgl.setRTLTextPlugin(
+            'https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.3/mapbox-gl-rtl-text.js',
+            null!,
+            true // Lazy load the plugin
+        );
+    }
+};
 
 const MapSection = ({ points }: { points: Point[] }) => {
     const mapContainer = useRef<HTMLDivElement>(null);
     const map = useRef<mapboxgl.Map | null>(null);
 
+    const {
+        setMapInstance,
+        initializeRTLPlugin,
+        customizeMapLayers,
+        addMarker,
+        clearMarkers,
+        flyTo,
+        easeTo,
+        resetMap
+    } = useMapStore();
+
     const center = useMemo(() => {
-        return [Number(points[0]?.location?.long), Number(points[0]?.location?.lat)];
+        const first = points.find(
+            p => p.location.lat && p.location.long && !isNaN(Number(p.location.lat)) && !isNaN(Number(p.location.long))
+        );
+        return first ? [Number(first.location.long), Number(first.location.lat)] : [34.8259390, 32.2337946];
     }, [points]);
 
     useEffect(() => {
-        if (map.current) return; // initialize map only once
-        mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN!;
+        if (map.current) return;
+        initializeRTLPlugin();
+        customizeMapLayers();
+        mapboxgl.accessToken = MAPBOX_TOKEN;
         map.current = new mapboxgl.Map({
             container: mapContainer.current!,
             style: 'mapbox://styles/mapbox/streets-v11',
             center: center as LngLatLike,
             zoom: 8,
+        });
+
+        // Add this after map is created:
+        map.current.on('style.load', () => {
+            map.current!.addControl(new MapboxLanguage({ defaultLanguage: 'he' }));
+            const mapInstance = map.current!;
+            mapInstance.getStyle().layers?.forEach(layer => {
+                if (layer.type === 'symbol' && layer.layout && 'text-field' in layer.layout) {
+                    mapInstance.setLayoutProperty(layer.id, 'text-field', [
+                        'coalesce',
+                        ['get', 'name:he'],
+                        ['get', 'name'],
+                        ['get', 'name:en']
+                    ]);
+                }
+            });
         });
 
         // Add markers for each point
@@ -48,6 +97,9 @@ const MapSection = ({ points }: { points: Point[] }) => {
                 // Create the label element
                 const labelEl = document.createElement('div');
                 labelEl.textContent = point.title;
+                labelEl.dir = 'rtl';
+                labelEl.style.direction = 'rtl';
+                labelEl.style.fontFamily = 'Heebo, Arial, sans-serif';
                 labelEl.style.marginTop = '4px';
                 labelEl.style.background = 'white';
                 labelEl.style.padding = '8px 12px';
@@ -82,4 +134,4 @@ const MapSection = ({ points }: { points: Point[] }) => {
     );
 };
 
-export default MapSection; 
+export default MapSection;
