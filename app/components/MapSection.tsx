@@ -11,17 +11,17 @@ import MapboxLanguage from '@mapbox/mapbox-gl-language';
 
 const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN!;
 
-const initializeRTLTextPlugin = () => {
-    // @ts-ignore - the mapboxgl types don't include the RTL plugin
-    if (!mapboxgl.getRTLTextPluginStatus || mapboxgl.getRTLTextPluginStatus() === 'unavailable') {
-        // @ts-ignore
-        mapboxgl.setRTLTextPlugin(
-            'https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.3/mapbox-gl-rtl-text.js',
-            null!,
-            true // Lazy load the plugin
-        );
-    }
-};
+// const initializeRTLTextPlugin = () => {
+//     // @ts-ignore - the mapboxgl types don't include the RTL plugin
+//     if (!mapboxgl.getRTLTextPluginStatus || mapboxgl.getRTLTextPluginStatus() === 'unavailable') {
+//         // @ts-ignore
+//         mapboxgl.setRTLTextPlugin(
+//             'https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.3/mapbox-gl-rtl-text.js',
+//             null!,
+//             true // Lazy load the plugin
+//         );
+//     }
+// };
 
 const MapSection = ({ points }: { points: Point[] }) => {
     const mapContainer = useRef<HTMLDivElement>(null);
