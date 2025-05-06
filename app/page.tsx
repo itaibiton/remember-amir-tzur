@@ -4,7 +4,7 @@ import MapSection from "./components/MapSection";
 import LinksSection from "./components/LinksSection";
 import Footer from "./components/Footer";
 import Divider from "./components/Divider";
-
+import { POINTS } from "./data/constants";
 export default function Home() {
   return (
     <div className="flex flex-col bg-[#fcfcf7] min-h-fit">
@@ -12,7 +12,7 @@ export default function Home() {
         <ContentSection />
         <Divider />
         <PointsSection />
-        <MapSection />
+        <MapSection points={POINTS} />
         <Divider />
         <LinksSection />
         <Divider />

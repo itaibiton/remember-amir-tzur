@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Heebo } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 const heebo = Heebo({
   subsets: ['hebrew'],

@@ -1,3 +1,5 @@
+import { Point } from "../components/PointCard";
+
 export const STATIC_CONTENT = [
     {
         title: '',
@@ -66,65 +68,148 @@ export const EXTERNAL_LINKS = [
     },
 ];
 
-export const POINTS = [
+export const POINTS: Point[] = [
+    {
+        title: 'המחנה הגדול - געש',
+        link: '/gaash',
+        location: {
+            lat: '32.2337946',
+            long: '34.8259390'
+        },
+        disabled: false
+    },
     {
         title: 'ערד - מצפה מואב',
-        link: '/arad'
+        link: '/arad',
+        location: {
+            lat: '31.2586',
+            long: '35.2172'
+        },
+        disabled: true
     },
     {
         title: 'הר החרמון',
-        link: '/arad'
+        link: '/hermon',
+        location: {
+            lat: '33.3090',
+            long: '35.7667'
+        },
+        disabled: true
     },
     {
         title: 'הר עמשא',
-        link: '/arad'
+        link: '/amasa',
+        location: {
+            lat: '31.3578',
+            long: '35.1106'
+        },
+        disabled: true
     },
     {
         title: 'מצפה הימים',
-        link: '/arad'
+        link: '/mitzpe-hayamim',
+        location: {
+            lat: '32.9531',
+            long: '35.4942'
+        },
+        disabled: true
     },
     {
         title: 'הר קטום',
-        link: '/arad'
+        link: '/katom',
+        location: {
+            lat: '30.9631',
+            long: '35.2872'
+        },
+        disabled: true
     },
     {
         title: 'גב ימין',
-        link: '/arad'
+        link: '/giv-yamin',
+        location: {
+            lat: '30.6467',
+            long: '35.2067'
+        },
+        disabled: true
     },
     {
         title: 'נהר הירדן',
-        link: '/arad'
+        link: '/jordan-river',
+        location: {
+            lat: '32.5976',
+            long: '35.5733'
+        },
+        disabled: true
     },
     {
         title: 'מצפה שלם',
-        link: '/arad'
+        link: '/shalem',
+        location: {
+            lat: '31.5617',
+            long: '35.3881'
+        },
+        disabled: true
     },
     {
         title: 'מדרשת בן גוריון',
-        link: '/arad'
+        link: '/ben-gurion',
+        location: {
+            lat: '30.8531',
+            long: '34.7833'
+        },
+        disabled: true
     },
     {
         title: 'חוף גינוסר',
-        link: '/arad'
+        link: '/ginossar',
+        location: {
+            lat: '32.8706',
+            long: '35.5192'
+        }
     },
     {
         title: 'הר עצמון',
-        link: '/arad'
+        link: '/atzmon',
+        location: {
+            lat: '32.8056',
+            long: '35.2556'
+        },
+        disabled: true
     },
     {
         title: 'הר אביטל',
-        link: '/arad'
+        link: '/avital',
+        location: {
+            lat: '33.1208',
+            long: '35.7781'
+        },
+        disabled: true
     },
     {
         title: 'תל חדיד',
-        link: '/arad'
+        link: '/hadid',
+        location: {
+            lat: '31.9731',
+            long: '34.9342'
+        },
+        disabled: true
     },
     {
         title: 'נביא מוסא',
-        link: '/arad'
+        link: '/nabi-musa',
+        location: {
+            lat: '31.8125',
+            long: '35.4000'
+        },
+        disabled: true
     },
     {
         title: 'חרבת קצרה',
-        link: '/arad'
+        link: '/katzra',
+        location: {
+            lat: '30.7997',
+            long: '35.2467'
+        },
+        disabled: true
     },
 ]; 
