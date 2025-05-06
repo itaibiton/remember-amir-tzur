@@ -4,7 +4,7 @@ import React, { useEffect, useMemo, useRef } from 'react';
 import mapboxgl, { LngLatLike } from 'mapbox-gl';
 import { Point } from './PointCard';
 import ReactDOMServer from 'react-dom/server';
-import { MapPinned, MapPin } from 'lucide-react';
+import { MapPin } from 'lucide-react';
 
 const MapSection = ({ points }: { points: Point[] }) => {
     const mapContainer = useRef<HTMLDivElement>(null);
