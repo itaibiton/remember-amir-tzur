@@ -1,9 +1,7 @@
-import { Image as ImageIcon } from "lucide-react"
 import Footer from "../components/Footer"
 import Divider from "../components/Divider"
 import MapSection from "../components/MapSection"
 import PointsSection from "../components/PointsSection"
-import CarouselDemo from "../components/CarouselDemo"
 import { POINTS, SLUG_STATIC_CONTENT } from "../data/constants";
 import Link from "next/link";
 

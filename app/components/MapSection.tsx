@@ -118,12 +118,17 @@ const MapSection = ({ points }: { points: Point[] }) => {
         return () => {
             markers.forEach(marker => marker.remove());
             map.current?.remove();
+            map.current = null;
         };
     }, [center, points, initializeRTLPlugin, customizeMapLayers]);
 
     return (
         <div className="w-full h-[524px] rounded-[24px] flex items-center justify-center mb-10 overflow-hidden ">
-            <div ref={mapContainer} className="w-full h-full rounded-[24px]" />
+            <div
+                ref={mapContainer}
+                className="w-full h-full rounded-[24px]"
+                key={JSON.stringify(points.map(p => p.link))}
+            />
         </div>
     );
 };
