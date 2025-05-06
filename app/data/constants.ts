@@ -1,5 +1,12 @@
 import { Point } from "../components/PointCard";
 
+export interface SlugStaticContent {
+    link: string;
+    title: string;
+    subtitle: string;
+    content: string;
+}
+
 export const STATIC_CONTENT = [
     {
         title: '',
@@ -25,7 +32,7 @@ export const STATIC_CONTENT = [
     }
 ];
 
-export const SLUG_STATIC_CONTENT = [
+export const SLUG_STATIC_CONTENT: SlugStaticContent[] = [
     {
         link: 'gaash',
         title: 'המחנה הגדול (געש) - בצל אמיר',

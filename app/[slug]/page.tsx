@@ -1,11 +1,16 @@
+'use client'
+
 import Footer from "../components/Footer"
 import Divider from "../components/Divider"
 import MapSection from "../components/MapSection"
 import PointsSection from "../components/PointsSection"
-import { POINTS, SLUG_STATIC_CONTENT } from "../data/constants";
+import { POINTS, SLUG_STATIC_CONTENT, SlugStaticContent } from "../data/constants";
 import Link from "next/link";
+import { useParams } from 'next/navigation'
 
-export default function Page({ params }: { params: { slug: string } }) {
+export default function Page() {
+
+    const params = useParams<{ slug: string }>()
 
     const point = POINTS.find((point) => point.link.split('/').pop() === params.slug);
 
@@ -50,7 +55,8 @@ export default function Page({ params }: { params: { slug: string } }) {
 }
 
 
-const AboutSection = ({ staticContent }: { staticContent: any }) => {
+
+const AboutSection = ({ staticContent }: { staticContent: SlugStaticContent }) => {
     return <div className="flex flex-col gap-4 text-base">
         <h1 className="text-2xl font-bold">{staticContent.title}</h1>
         <h2 className="text-xl font-bold">{staticContent.subtitle}</h2>
