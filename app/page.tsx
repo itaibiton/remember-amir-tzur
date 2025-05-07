@@ -8,14 +8,15 @@ import { POINTS } from "./data/constants";
 export default function Home() {
   return (
     <div className="flex flex-col bg-[#fcfcf7] min-h-fit">
-      <div className="min-h-screen w-full items-start flex flex-col px-8 md:px-32 pt-[12rem]" dir="rtl">
+      <div className="min-h-screen w-full items-start flex flex-col px-8 md:px-32 pt-[10rem]" dir="rtl">
+        <Divider className=" mb-8" />
         <ContentSection />
-        <Divider />
+        <Divider className=" mb-8" />
         <PointsSection />
         <MapSection points={POINTS} />
-        <Divider />
+        <Divider className=" mb-8" />
         <LinksSection />
-        <Divider />
+        <Divider className=" mb-8" />
         <Footer />
       </div>
     </div>

@@ -24,7 +24,8 @@ export default function Page() {
     }
 
     return <div className="flex flex-col bg-[#fcfcf7] min-h-fit w-full">
-        <div className="min-h-screen w-full items-start flex flex-col px-8 md:px-32 pt-[12rem]" dir="rtl">
+        <div className="min-h-screen w-full items-start flex flex-col px-8 md:px-32 pt-[10rem]" dir="rtl">
+            <Divider className=" mb-8" />
             <div className="flex flex-col xl:flex-row gap-8 mb-10">
                 {/* <div className="flex flex-col gap-4 w-full xl:w-1/2"> */}
                 {/* For now, no images */}
@@ -45,10 +46,10 @@ export default function Page() {
                     ))}
                 </div> */}
             </div>
-            <Divider />
+            <Divider className=" mb-8" />
             <PointsSection />
             <MapSection points={POINTS} />
-            <Divider />
+            <Divider className=" mb-8" />
             <Footer />
         </div>
     </div>
