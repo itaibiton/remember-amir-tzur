@@ -9,7 +9,7 @@ const ContentSection = () => {
                 {STATIC_CONTENT.map((item, index) => (
                     <div key={`${index}-item-content`} className="flex flex-col">
                         <p className="font-medium">{item?.title}</p>
-                        <p>{item?.content}</p>
+                        <p className="text-justify">{item?.content}</p>
                     </div>
                 ))}
                 {/* <p>יהי זכרו נצור בליבנו לעד.</p> */}
