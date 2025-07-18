@@ -20,7 +20,7 @@ const PointCard = ({ point }: { point: Point }) => {
                 'opacity-50': point?.disabled
             })}>
             <MarkerSvg />
-            <p>{point?.title}</p>
+            <p className="text-justify">{point?.title}</p>
         </Link>
     );
 };
