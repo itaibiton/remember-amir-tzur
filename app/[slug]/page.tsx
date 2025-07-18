@@ -63,7 +63,7 @@ const AboutSection = ({ staticContent }: { staticContent: SlugStaticContent }) =
         <h2 className="text-xl font-bold">{staticContent.subtitle}</h2>
         <p
             dangerouslySetInnerHTML={{ __html: staticContent.content }}
-            className="text-base whitespace-pre-line"
+            className="text-base whitespace-pre-line text-justify"
         />
     </div>
 }
