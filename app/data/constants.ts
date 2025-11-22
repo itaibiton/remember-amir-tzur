@@ -5,6 +5,7 @@ export interface SlugStaticContent {
     title: string;
     subtitle: string;
     content: string;
+    images?: string[];
 }
 
 export const STATIC_CONTENT = [
@@ -37,6 +38,10 @@ export const SLUG_STATIC_CONTENT: SlugStaticContent[] = [
         link: 'gaash',
         title: 'המחנה הגדול (געש) - בצל אמיר',
         subtitle: 'תיירים / יהודה עמיחי',
+        images: [
+            '/images/gaash/gaash-1.jpeg',
+            '/images/gaash/gaash-2.jpeg'
+        ],
         content: `
 פעם ישבתי על מדרגות ליד שער במצודת דוד, את שני הסלים הכבדים שמתי לידי.
 עמדה שם קבוצת תיירים סביב המדריך ושימשתי להם נקודת ציון - "אתם רואים את האיש הזה עם הסלים? קצת ימינה מראשו נמצאת קשת מהתקופה הרומית".
@@ -57,6 +62,12 @@ export const SLUG_STATIC_CONTENT: SlugStaticContent[] = [
         link: 'arad',
         title: 'שלא נצא בורים - מצפה מואב',
         subtitle: 'אהבה / עמוס עוז',
+        images: [
+            '/images/arad/arad-1.jpeg',
+            '/images/arad/arad-2.jpeg',
+            '/images/arad/arad-3.jpeg',
+            '/images/arad/arad-4.jpeg'
+        ],
         content: `
         אי אפשר ׳לחנך לאהבה׳
         לא לאהבת הארץ, ולא לאהבת הנוף
