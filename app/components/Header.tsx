@@ -3,7 +3,7 @@ import React from 'react';
 
 const Header = () => {
     return (
-        <div className="flex gap-4 mb-12 fixed inset-0 h-fit py-8 backdrop-blur-xl w-full px-8 md:px-32 z-20">
+        <div className="flex gap-4 mb-4 fixed inset-0 h-fit py-4 backdrop-blur-xl w-full px-8 md:px-32 z-20 justify-center">
             <Link href="/" className="flex items-center justify-center gap-4">
                 <div className="">
                     <svg width="38" height="76" viewBox="0 0 38 76" fill="none" xmlns="http://www.w3.org/2000/svg">
