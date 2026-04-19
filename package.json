@@ -3,13 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "tinacms dev -c \"next dev --turbopack\"",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@mapbox/mapbox-gl-language": "^1.0.1",
+    "@tinacms/cli": "^2.2.2",
     "@types/mapbox-gl": "^3.4.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.488.0",
@@ -18,6 +19,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-mapbox-gl": "^5.1.1",
+    "tinacms": "^3.7.2",
     "zustand": "^5.0.4"
   },
   "devDependencies": {

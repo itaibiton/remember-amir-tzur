@@ -1,48 +1,44 @@
-import { Point } from "../components/PointCard";
+import { Point } from '../components/PointCard';
 
 export interface SlugStaticContent {
-    link: string;
-    title: string;
-    subtitle: string;
-    content: string;
-    images?: string[];
+  link: string;
+  title: string;
+  subtitle: string;
+  content: string;
+  images?: string[];
 }
 
 export const STATIC_CONTENT = [
-    {
-        title: '',
-        content: `רוח של למידה, העמקה והרחבת אופקים פעמה בלבו של אמיר, חברנו לצוות. יכולת נדירה לגרום למתבונן להביט על המציאות מזווית נוספת. כל סקירה גאוגרפית שהתבצעה בסוף ניווט או מסע מפרך ,אשר אמורה הייתה להיות לא יותר מחיבור הנקודות שבשטח אל המפה, הפכה בידיו של אמיר להזדמנות ללמידה עמוקה ומיוחדת. הוא שאב ממעיין הידע וחדוות הסקרנות שלו, גירה את החשיבה שלנו והגיש למתבונן פרספקטיבה שונה וייחודית. כל פריט בנוף היה עבורו פתח להרחבות היסטוריות, גאולוגיות, תרבותיות – ומה לא?”
+  {
+    title: '',
+    content: `רוח של למידה, העמקה והרחבת אופקים פעמה בלבו של אמיר, חברנו לצוות. יכולת נדירה לגרום למתבונן להביט על המציאות מזווית נוספת. כל סקירה גאוגרפית שהתבצעה בסוף ניווט או מסע מפרך ,אשר אמורה הייתה להיות לא יותר מחיבור הנקודות שבשטח אל המפה, הפכה בידיו של אמיר להזדמנות ללמידה עמוקה ומיוחדת. הוא שאב ממעיין הידע וחדוות הסקרנות שלו, גירה את החשיבה שלנו והגיש למתבונן פרספקטיבה שונה וייחודית. כל פריט בנוף היה עבורו פתח להרחבות היסטוריות, גאולוגיות, תרבותיות – ומה לא?”
 אמיר צור, קצין לוחם ופרמדיק בסיירת מטכ”ל, מהראשונים להתייצב ולהילחם מול מחבלי הנוח'בה שחדרו לקיבוץ כפר עזה ב-7.10.23.
 אמיר, אדם ברוך כישרונות, איש רוח ואיש משפחה, אדם מחונן, נגן פסנתר, אלוף הארץ בריצת ניווט, איש טבע ומדריך טיולים, פרמדיק, קצין ולוחם נחוש ומוערך – ובעיקר חבר, כזה שנגע בלב של כל אחד מאתנו.
-`
-    },
-    {
-        title: 'שלא נצא בורים',
-        content: `ביטוי שהיווה פתיח קבוע לכל סקירה מעשירה של אמיר, אשר ניתנה בכל הזדמנות: אחרי מסע מפרך, בתצפית אחרי עליה ארוכה, בתחילת שבוע חדש, ואפילו על דלת השירותים.
+`,
+  },
+  {
+    title: 'שלא נצא בורים',
+    content: `ביטוי שהיווה פתיח קבוע לכל סקירה מעשירה של אמיר, אשר ניתנה בכל הזדמנות: אחרי מסע מפרך, בתצפית אחרי עליה ארוכה, בתחילת שבוע חדש, ואפילו על דלת השירותים.
 בכל פעם מחדש, אמיר מצא דרך להרחיב את אופקינו, להפתיע בידע חדש, ולתת לנו רגע של מחשבה והשראה.
 מתוך הרוח הזו נולד הפרויקט – להמשיך את הדרך שאמיר התווה - לעורר את הסקרנות, האהבה לטבע ולארץ והרצון להעמיק את ההתבוננות בפרטים שבשגרה חולפים לנגד עיננו מבלי כל התייחסות.
 לאורך הארץ פרושות נקודות ציון שבכל אחת מהן ישנו זיכרון משותף שלנו עם אמיר. בכל אחת מהן יקום רוג’ום צנוע, שמוטמע בו קוד לסריקה.
 סריקת הקוד תוביל אתכם לאתר אינטרנט עשיר בסיפורים, במידע ובהשראה על המקום שבו אתם עומדים, על הדרך שאמיר עבר ועל ערכיו.
 כמו אז, גם היום, אמיר ממשיך לקחת אותנו איתו – לגלות, להתבונן, לשאול שאלות ולצאת קצת פחות בורים ממה שהיינו.
-`
-    },
-    {
-        title: `בצילך ולאורך חבר.`,
-        content: ``
-    },
-
+`,
+  },
+  {
+    title: `בצילך ולאורך חבר.`,
+    content: ``,
+  },
 ];
 
 export const SLUG_STATIC_CONTENT: SlugStaticContent[] = [
-    {
-        link: 'gaash',
-        title: 'המחנה הגדול (געש) - בצל אמיר',
-        subtitle: 'תיירים / יהודה עמיחי',
-        images: [
-            '/images/gaash/gaash-1.jpeg',
-            '/images/gaash/gaash-2.jpeg'
-        ],
-        content: `
+  {
+    link: 'gaash',
+    title: 'המחנה הגדול (געש) - בצל אמיר',
+    subtitle: 'תיירים / יהודה עמיחי',
+    images: ['/images/gaash/gaash-1.jpeg', '/images/gaash/gaash-2.jpeg'],
+    content: `
 פעם ישבתי על מדרגות ליד שער במצודת דוד, את שני הסלים הכבדים שמתי לידי.
 עמדה שם קבוצת תיירים סביב המדריך ושימשתי להם נקודת ציון - "אתם רואים את האיש הזה עם הסלים? קצת ימינה מראשו נמצאת קשת מהתקופה הרומית".
 אמרתי בליבי - הגאולה תבוא רק אם יגידו להם: "אתם רואים שם את הקשת הרומית? לא חשוב, אבל לידה, קצת שמאלה ולמטה ממנה, יושב אדם שקנה ירקות ופירות לביתו"
@@ -56,19 +52,19 @@ export const SLUG_STATIC_CONTENT: SlugStaticContent[] = [
 
 בצילך ולאורך חבר.
 
-        `
-    },
-    {
-        link: 'arad',
-        title: 'שלא נצא בורים - מצפה מואב',
-        subtitle: 'אהבה / עמוס עוז',
-        images: [
-            '/images/arad/arad-1.jpeg',
-            '/images/arad/arad-2.jpeg',
-            '/images/arad/arad-3.jpeg',
-            '/images/arad/arad-4.jpeg'
-        ],
-        content: `
+        `,
+  },
+  {
+    link: 'arad',
+    title: 'שלא נצא בורים - מצפה מואב',
+    subtitle: 'אהבה / עמוס עוז',
+    images: [
+      '/images/arad/arad-1.jpeg',
+      '/images/arad/arad-2.jpeg',
+      '/images/arad/arad-3.jpeg',
+      '/images/arad/arad-4.jpeg',
+    ],
+    content: `
         אי אפשר ׳לחנך לאהבה׳
         לא לאהבת הארץ, ולא לאהבת הנוף
         באהבה אפשר להדביק את הזולת.
@@ -94,233 +90,262 @@ export const SLUG_STATIC_CONTENT: SlugStaticContent[] = [
         כל מקום הוא פתח ללימוד, אך בעיקר, כמו שלימד אותנו אמיר בדרכו - כל מקום הוא פתח לעורר סקרנות, הקשבה, התלהבות והרבה הרבה אהבה - לטבע ולאדם. דרך הרגליים, דרך העיניים ודרך ״שלא נצא בורים״.
 
         בצילך ולאורך חבר.
-        `
-    }
-]
+        `,
+  },
+  {
+    link: 'nitzana',
+    title: 'ניצנה - בצילך ולאורך חבר',
+    subtitle: 'חברות / נתן אלתרמן',
+    images: [
+      '/images/nitzana/nitzana-rujum.jpeg',
+      '/images/nitzana/nitzana-samash.jpg',
+      '/images/nitzana/nitzana-3.jpeg',
+    ],
+    content: `
+        ״דמות האדם בישראל פירושה קודם-כל דמות הנוער בישראל. יכולתו היוצרת, יוזמתו החלוצית, נאמנותו לשליחות שההיסטוריה הטילה עליו בדורנו.
+תעשו בעצמכם, בחייכם יום-יום, כל מה שהייתם רוצים שיעשה כל העם. תהיו מופת לעם בחייכם אתם. הדוגמא החיה היא המחנכת והנוער בישראל יעצב דמות האדם בישראל על ידי חיי מופת."
+– דוד בן גוריון
+
+את הקטע הזה מצאנו בתיקיית החינוך של אמיר מהמסלול, תיקייה אותה מילא, בתור אחראי החינוך הצוותי, בתכנים ערכיים, מעשירים ומלמדים ושממנה דלה בכל פעם קטע או שניים והעביר אותם לנו בדרך כזו או אחרת – סקירה גאוגרפית בסוף מסע, זמן פנוי בנסיעות לשבועות שטח ואפילו בתלייה במגורים... העיקר, ובמילותיו: "שלא נצא בורים".
+
+אמיר היה איש של תרומה, יוזמה, רצון להשפיע ולשנות מתוך דוגמא אישית ואמונה שלמה בדרך, חלוץ. במהלך המסלול, דרש מעצמו ומאיתנו להצטיין כפרטים וכקבוצה – בדרישה לעזור ולחייך לאנשים הסובבים אותנו, ובצמא התמידי לידע והבנה עמוקה של כל ניווט ומשימה.  
+הכרנו אמיר שקול, אוהב אדם וטבע, מרצה מופלא על כל אבן, ציפור, נחל וכוכב שפגשנו בשבועות השטח הרבים... אמיר של סיפורים, על המשפחה ובעיקר על האחיינים, על ריצות הניווט, על המכינה ועל כל נושא שבער ברוחו ורצה לשנות, ממש כמו בקטע של בן גוריון. 
+
+        `,
+  },
+];
 
 export const EXTERNAL_LINKS = [
-    {
-        title: 'כמה דברים על אמיר מפיה של עופרי אחותו.',
-        description: 'ראיון בכאן 11',
-        link: 'https://x.com/kann_news/status/1746545317355348117'
-    },
-    {
-        title: 'פרידה מעילוי, הקצין שתמיד היה ראשון, גם בלהסתער',
-        description: 'כתבה בכאן 11',
-        link: 'https://www.youtube.com/watch?v=DeiPPqIS-A0'
-    },
-    {
-        title: 'בלוג שכתב אמיר במהלך האליפות הראשנה שלו באירופה',
-        description: 'EYOC - European Youth Orienteering Championships',
-        link: 'https://amirzur-o.blogspot.com/2016/12/eyoc-european-youth-orienteering.html?m=1'
-    },
-    {
-        title: 'פודקסט על הלחימה בכפר עזה, יחד עם כפיר, אחד הלוחמים בכוח.',
-        description: 'חמש אצבעות',
-        link: 'https://www.youtube.com/watch?v=bPEV95KlDM8'
-    },
-    {
-        title: 'דף ההנצחה של אמיר.',
-        description: 'יזכור - אתר ההנצחה הלאומי',
-        link: 'https://www.izkor.gov.il/%D7%90%D7%9E%D7%99%D7%A8%20%D7%A6%D7%95%D7%A8/en_2f2ff74b1b7545cb0b1e671c038c512a'
-    },
-    {
-        title: '33 עצות לחיים טובים.',
-        description: 'אמיר צור',
-        link: 'https://s3.eu-central-1.amazonaws.com/dav.externalfiles.new/tikshoretmada/33+%D7%A2%D7%A6%D7%95%D7%AA+%D7%9C%D7%97%D7%99%D7%99%D7%9D+%D7%98%D7%95%D7%91%D7%99%D7%9D+%D7%A9%D7%9C+%D7%90.+%D7%A6%D7%95%D7%A8+(1)+(2).pdf'
-    },
-    {
-        title: 'שיחה מלב אל לב עם עופרי ואיתן, אחיו של אמיר.',
-        description: 'ראיון עם חנוך דאום ורותם סלע',
-        link: 'https://www.facebook.com/watch/?share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fv%2FY9u9brjLmgMAzzXJ%2F&v=2471067606427734&rdid=LvVhE3Neg3qmKbZN'
-    },
-    {
-        title: 'הלוחם האמיץ עם הלב הגדול.',
-        description: 'ynet',
-        link: 'https://www.ynet.co.il/environment-science/article/rk002muazr?utm_source=ynet.app.android&utm_medium=social&utm_campaign=whatsapp&utm_term=rk002muazr&utm_content=Header'
-    },
+  {
+    title: 'כמה דברים על אמיר מפיה של עופרי אחותו.',
+    description: 'ראיון בכאן 11',
+    link: 'https://x.com/kann_news/status/1746545317355348117',
+  },
+  {
+    title: 'פרידה מעילוי, הקצין שתמיד היה ראשון, גם בלהסתער',
+    description: 'כתבה בכאן 11',
+    link: 'https://www.youtube.com/watch?v=DeiPPqIS-A0',
+  },
+  {
+    title: 'בלוג שכתב אמיר במהלך האליפות הראשנה שלו באירופה',
+    description: 'EYOC - European Youth Orienteering Championships',
+    link: 'https://amirzur-o.blogspot.com/2016/12/eyoc-european-youth-orienteering.html?m=1',
+  },
+  {
+    title: 'פודקסט על הלחימה בכפר עזה, יחד עם כפיר, אחד הלוחמים בכוח.',
+    description: 'חמש אצבעות',
+    link: 'https://www.youtube.com/watch?v=bPEV95KlDM8',
+  },
+  {
+    title: 'דף ההנצחה של אמיר.',
+    description: 'יזכור - אתר ההנצחה הלאומי',
+    link: 'https://www.izkor.gov.il/%D7%90%D7%9E%D7%99%D7%A8%20%D7%A6%D7%95%D7%A8/en_2f2ff74b1b7545cb0b1e671c038c512a',
+  },
+  {
+    title: '33 עצות לחיים טובים.',
+    description: 'אמיר צור',
+    link: 'https://s3.eu-central-1.amazonaws.com/dav.externalfiles.new/tikshoretmada/33+%D7%A2%D7%A6%D7%95%D7%AA+%D7%9C%D7%97%D7%99%D7%99%D7%9D+%D7%98%D7%95%D7%91%D7%99%D7%9D+%D7%A9%D7%9C+%D7%90.+%D7%A6%D7%95%D7%A8+(1)+(2).pdf',
+  },
+  {
+    title: 'שיחה מלב אל לב עם עופרי ואיתן, אחיו של אמיר.',
+    description: 'ראיון עם חנוך דאום ורותם סלע',
+    link: 'https://www.facebook.com/watch/?share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fv%2FY9u9brjLmgMAzzXJ%2F&v=2471067606427734&rdid=LvVhE3Neg3qmKbZN',
+  },
+  {
+    title: 'הלוחם האמיץ עם הלב הגדול.',
+    description: 'ynet',
+    link: 'https://www.ynet.co.il/environment-science/article/rk002muazr?utm_source=ynet.app.android&utm_medium=social&utm_campaign=whatsapp&utm_term=rk002muazr&utm_content=Header',
+  },
 ];
 
 export const POINTS: Point[] = [
-    {
-        title: 'המחנה הגדול - געש',
-        link: '/gaash',
-        location: {
-            lat: '32.2337946',
-            long: '34.8259390'
-        },
-        disabled: false
+  {
+    title: 'המחנה הגדול - געש',
+    link: '/gaash',
+    location: {
+      lat: '32.2337946',
+      long: '34.8259390',
     },
-    {
-        title: 'ערד - מצפה מואב',
-        link: '/arad',
-        location: {
-            lat: '31.2612526',
-            long: '35.2387011'
-        },
-        disabled: false
+    disabled: false,
+  },
+  {
+    title: 'ערד - מצפה מואב',
+    link: '/arad',
+    location: {
+      lat: '31.2612526',
+      long: '35.2387011',
     },
-    {
-        title: 'הר החרמון',
-        link: '/hermon',
-        location: {
-            lat: '33.315235',
-            long: '35.810231'
-        },
-        disabled: true
+    disabled: false,
+  },
+  {
+    title: 'ניצנה',
+    link: '/nitzana',
+    location: {
+      lat: '30.885558',
+      long: '34.423283',
     },
-    {
-        title: 'הר עמשא',
-        link: '/amasa',
-        location: {
-            lat: '31.4317065',
-            long: '35.1037873'
-        },
-        disabled: true
+    disabled: false,
+  },
+  {
+    title: 'הר החרמון',
+    link: '/hermon',
+    location: {
+      lat: '33.315235',
+      long: '35.810231',
     },
-    {
-        title: 'מצפה הימים',
-        link: '/mitzpe-hayamim',
-        location: {
-            lat: '32.9395687',
-            long: '35.4599646'
-        },
-        disabled: true
+    disabled: true,
+  },
+  {
+    title: 'הר עמשא',
+    link: '/amasa',
+    location: {
+      lat: '31.4317065',
+      long: '35.1037873',
     },
-    {
-        title: 'הר קטום',
-        link: '/katom',
-        location: {
-            lat: '30.5764111',
-            long: '34.8953032'
-        },
-        disabled: true
+    disabled: true,
+  },
+  {
+    title: 'מצפה הימים',
+    link: '/mitzpe-hayamim',
+    location: {
+      lat: '32.9395687',
+      long: '35.4599646',
     },
-    {
-        title: 'גב ימין',
-        link: '/giv-yamin',
-        location: {
-            lat: '30.9440304',
-            long: '35.0731786'
-        },
-        disabled: true
+    disabled: true,
+  },
+  {
+    title: 'הר קטום',
+    link: '/katom',
+    location: {
+      lat: '30.5764111',
+      long: '34.8953032',
     },
-    {
-        title: 'נהר הירדן',
-        link: '/jordan-river',
-        location: {
-            lat: '32.9984211',
-            long: '35.6266437'
-        },
-        disabled: true
+    disabled: true,
+  },
+  {
+    title: 'גב ימין',
+    link: '/giv-yamin',
+    location: {
+      lat: '30.9440304',
+      long: '35.0731786',
     },
-    {
-        title: 'מצפה שלם',
-        link: '/shalem',
-        location: {
-            lat: '31.5617',
-            long: '35.3881'
-        },
-        disabled: true
+    disabled: true,
+  },
+  {
+    title: 'נהר הירדן',
+    link: '/jordan-river',
+    location: {
+      lat: '32.9984211',
+      long: '35.6266437',
     },
-    {
-        title: 'מדרשת בן גוריון',
-        link: '/ben-gurion',
-        location: {
-            lat: '30.8498626',
-            long: '34.7885497'
-        },
-        disabled: true
+    disabled: true,
+  },
+  {
+    title: 'מצפה שלם',
+    link: '/shalem',
+    location: {
+      lat: '31.5617',
+      long: '35.3881',
     },
-    {
-        title: 'חוף גינוסר',
-        link: '/ginossar',
-        location: {
-            lat: '32.844094',
-            long: '35.525210'
-        },
-        disabled: true
+    disabled: true,
+  },
+  {
+    title: 'מדרשת בן גוריון',
+    link: '/ben-gurion',
+    location: {
+      lat: '30.8498626',
+      long: '34.7885497',
     },
-    {
-        title: 'הר עצמון',
-        link: '/atzmon',
-        location: {
-            lat: '32.8238451',
-            long: '35.2665485'
-        },
-        disabled: true
+    disabled: true,
+  },
+  {
+    title: 'חוף גינוסר',
+    link: '/ginossar',
+    location: {
+      lat: '32.844094',
+      long: '35.525210',
     },
-    {
-        title: 'הר אביטל',
-        link: '/avital',
-        location: {
-            lat: '33.103818',
-            long: '35.784491'
-        },
-        disabled: true
+    disabled: true,
+  },
+  {
+    title: 'הר עצמון',
+    link: '/atzmon',
+    location: {
+      lat: '32.8238451',
+      long: '35.2665485',
     },
-    {
-        title: 'תל חדיד',
-        link: '/hadid',
-        location: {
-            lat: '31.9640575',
-            long: '34.9509634'
-        },
-        disabled: true
+    disabled: true,
+  },
+  {
+    title: 'הר אביטל',
+    link: '/avital',
+    location: {
+      lat: '33.103818',
+      long: '35.784491',
     },
-    // {
-    //     title: 'נביא מוסא',
-    //     link: '/nabi-musa',
-    //     location: {
-    //         lat: '31.8125',
-    //         long: '35.4000'
-    //     },
-    //     disabled: true
-    // },
-    {
-        title: 'חרבת קצרה',
-        link: '/katzra',
-        location: {
-            lat: '30.5597778',
-            long: '35.0882060'
-        },
-        disabled: true
+    disabled: true,
+  },
+  {
+    title: 'תל חדיד',
+    link: '/hadid',
+    location: {
+      lat: '31.9640575',
+      long: '34.9509634',
     },
-    {
-        title: 'סירקין',
-        link: '/sirkin',
-        location: {
-            lat: '32.093295',
-            long: '34.912298'
-        },
-        disabled: true
+    disabled: true,
+  },
+  // {
+  //     title: 'נביא מוסא',
+  //     link: '/nabi-musa',
+  //     location: {
+  //         lat: '31.8125',
+  //         long: '35.4000'
+  //     },
+  //     disabled: true
+  // },
+  {
+    title: 'חרבת קצרה',
+    link: '/katzra',
+    location: {
+      lat: '30.5597778',
+      long: '35.0882060',
     },
-    {
-        title: 'חצבה',
-        link: '/hatzeva',
-        location: {
-            lat: '30.767607',
-            long: '35.276972'
-        },
-        disabled: true
+    disabled: true,
+  },
+  {
+    title: 'סירקין',
+    link: '/sirkin',
+    location: {
+      lat: '32.093295',
+      long: '34.912298',
     },
-    {
-        title: 'מצפה מכוור',
-        link: '/mitzpe-mokhavar',
-        location: {
-            lat: '31.5671495',
-            long: '35.3875768'
-        },
-        disabled: true
+    disabled: true,
+  },
+  {
+    title: 'חצבה',
+    link: '/hatzeva',
+    location: {
+      lat: '30.767607',
+      long: '35.276972',
     },
-    {
-        title: 'חרבת חריש',
-        link: '/haravat-harish',
-        location: {
-            lat: '31.4903754',
-            long: '34.8596922'
-        },
-        disabled: true
+    disabled: true,
+  },
+  {
+    title: 'מצפה מכוור',
+    link: '/mitzpe-mokhavar',
+    location: {
+      lat: '31.5671495',
+      long: '35.3875768',
     },
-
-]; 
+    disabled: true,
+  },
+  {
+    title: 'חרבת חריש',
+    link: '/haravat-harish',
+    location: {
+      lat: '31.4903754',
+      long: '34.8596922',
+    },
+    disabled: true,
+  },
+];

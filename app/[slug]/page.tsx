@@ -1,30 +1,35 @@
-'use client';
-
 import Image from 'next/image';
 import Link from 'next/link';
-import { useParams } from 'next/navigation';
+import Accordion from '../components/Accordion';
 import Divider from '../components/Divider';
 import Footer from '../components/Footer';
 import MapSection from '../components/MapSection';
 import PointsSection from '../components/PointsSection';
 import {
-  POINTS,
-  SLUG_STATIC_CONTENT,
-  SlugStaticContent,
-} from '../data/constants';
+  getAllLocationSlugs,
+  getAllPoints,
+  getLocation,
+  ContentBlock,
+} from '../lib/tina';
+import { formatText } from '../lib/format-text';
 
-export default function Page() {
-  const params = useParams<{ slug: string }>();
+export function generateStaticParams() {
+  const slugs = getAllLocationSlugs();
+  return slugs.map((slug) => ({ slug }));
+}
 
-  const point = POINTS.find(
-    (point) => point.link.split('/').pop() === params.slug
-  );
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const points = getAllPoints();
+  const location = getLocation(slug);
 
-  const staticContent = SLUG_STATIC_CONTENT.find(
-    (content) => content.link === params.slug
-  );
+  const point = points.find((p) => p.link === `/${slug}`);
 
-  if (!point || !staticContent) {
+  if (!point || !location) {
     return (
       <div className="w-screen h-screen flex items-center justify-center flex-col gap-4">
         <h1 className="text-2xl font-bold">
@@ -37,6 +42,9 @@ export default function Page() {
     );
   }
 
+  const blocks = location.contentBlocks ?? [];
+  const afterBlocks = location.afterAccordionBlocks ?? [];
+
   return (
     <div className="flex flex-col bg-[#fcfcf7] min-h-fit w-full">
       <div
@@ -44,53 +52,38 @@ export default function Page() {
         dir="rtl"
       >
         <Divider className=" mb-8" />
-        {/* Desktop layout */}
-        <div
-          className="hidden md:flex md:flex-row gap-8 mb-10 items-start"
-          dir="ltr"
-        >
-          {/* Left side - Images (50%) */}
-          {staticContent.images && staticContent.images.length > 0 && (
-            <div className="w-full md:w-1/2">
-              <div className="flex flex-col gap-4">
-                {staticContent.images.map((image, index) => (
-                  <div
-                    key={index}
-                    className="w-full rounded-lg overflow-hidden"
-                  >
-                    <Image
-                      src={image}
-                      alt={`${staticContent.title} ${index + 1}`}
-                      width={800}
-                      height={600}
-                      className="w-full h-auto object-contain"
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
 
-          {/* Right side - Text (50%) */}
+        {/* Desktop: images left, text right */}
+        <div className="hidden md:flex md:flex-row gap-8 mb-10 items-start w-full" dir="ltr">
+          <DesktopImages blocks={blocks} title={location.title} />
           <div
             className={`flex flex-col gap-4 w-full ${
-              staticContent.images && staticContent.images.length > 0
+              blocks.some((b) => b.blockType === 'image' && b.image)
                 ? 'md:w-1/2'
                 : ''
             }`}
             dir="rtl"
           >
-            <AboutSection staticContent={staticContent} />
+            <h1 className="text-2xl font-bold">{location.title}</h1>
+            <h2 className="text-xl font-bold">{location.subtitle}</h2>
+            <DesktopText blocks={blocks} />
+            <Accordion items={location.accordions ?? []} />
+            <ContentBlocks blocks={afterBlocks} title={location.title} />
           </div>
         </div>
 
-        {/* Mobile layout */}
-        <div className="flex md:hidden flex-col gap-6 mb-10" dir="rtl">
-          <MobileContentWithImages staticContent={staticContent} />
+        {/* Mobile: blocks in order */}
+        <div className="flex md:hidden flex-col gap-4 mb-10 w-full">
+          <h1 className="text-2xl font-bold">{location.title}</h1>
+          <h2 className="text-xl font-bold">{location.subtitle}</h2>
+          <ContentBlocks blocks={blocks} title={location.title} />
+          <Accordion items={location.accordions ?? []} />
+          <ContentBlocks blocks={afterBlocks} title={location.title} />
         </div>
+
         <Divider className=" mb-8" />
-        <PointsSection />
-        <MapSection points={POINTS} />
+        <PointsSection points={points} />
+        <MapSection points={points} />
         <Divider className=" mb-8" />
         <Footer />
       </div>
@@ -98,108 +91,97 @@ export default function Page() {
   );
 }
 
-const MobileContentWithImages = ({
-  staticContent,
+function ContentBlocks({
+  blocks,
+  title,
 }: {
-  staticContent: SlugStaticContent;
-}) => {
-  if (staticContent.images && staticContent.images.length > 0) {
-    const paragraphs = staticContent.content
-      .trim()
-      .split('\n\n')
-      .filter((p) => p.trim());
-    const images = staticContent.images;
+  blocks: ContentBlock[];
+  title: string;
+}) {
+  if (blocks.length === 0) return null;
 
-    // Calculate how to distribute images throughout the text
-    const imagePositions: number[] = [];
+  // Check if previous block was also text (to insert divider between consecutive text blocks)
+  const isTextBlock = (index: number) =>
+    blocks[index]?.blockType === 'text' && blocks[index]?.text;
 
-    // Distribute images only in the first 3/4 of the text
-    const maxPosition = Math.max(2, Math.floor(paragraphs.length * 0.75));
-    for (let i = 0; i < images.length; i++) {
-      if (images.length === 1) {
-        imagePositions.push(1);
-      } else if (images.length === 2) {
-        imagePositions.push(i === 0 ? 1 : 2);
-      } else {
-        const position = Math.floor(
-          (maxPosition * (i + 1)) / (images.length + 1)
-        );
-        imagePositions.push(Math.max(1, position));
-      }
-    }
+  return (
+    <div className="flex flex-col gap-4 w-full">
+      {blocks.map((block, i) => {
+        const needsDivider = block.blockType === 'text' && i > 0 && isTextBlock(i - 1);
 
-    console.log('Debug:', {
-      paragraphs: paragraphs.length,
-      maxPosition,
-      imagePositions,
-      images: images.length,
-    });
+        if (block.blockType === 'image' && block.image) {
+          return (
+            <div key={i} className="w-full rounded-lg overflow-hidden">
+              <Image
+                src={block.image}
+                alt={`${title} ${i + 1}`}
+                width={800}
+                height={600}
+                className="w-full h-auto object-contain"
+              />
+            </div>
+          );
+        }
+        if (block.blockType === 'text' && block.text) {
+          return (
+            <div key={i} className="flex flex-col gap-4">
+              {needsDivider && <Divider />}
+              <p
+                className="text-base whitespace-pre-line text-justify"
+                dangerouslySetInnerHTML={{ __html: formatText(block.text) }}
+              />
+            </div>
+          );
+        }
+        return null;
+      })}
+    </div>
+  );
+}
 
-    const content = [];
-    let imageIndex = 0;
+function DesktopImages({
+  blocks,
+  title,
+}: {
+  blocks: ContentBlock[];
+  title: string;
+}) {
+  const images = blocks.filter((b) => b.blockType === 'image' && b.image);
+  if (images.length === 0) return null;
 
-    // Add header first
-    content.push(
-      <div key="header" className="flex flex-col gap-4">
-        <h1 className="text-2xl font-bold">{staticContent.title}</h1>
-        <h2 className="text-xl font-bold">{staticContent.subtitle}</h2>
-      </div>
-    );
-
-    // Interleave paragraphs and images
-    paragraphs.forEach((paragraph, index) => {
-      // Add paragraph
-      content.push(
-        <p
-          key={`paragraph-${index}`}
-          dangerouslySetInnerHTML={{ __html: paragraph }}
-          className="text-base whitespace-pre-line text-justify"
-        />
-      );
-
-      // Check if we should add an image after this paragraph
-      if (
-        imageIndex < images.length &&
-        imagePositions[imageIndex] === index + 1
-      ) {
-        content.push(
-          <div
-            key={`image-${imageIndex}`}
-            className="relative w-full rounded-lg overflow-hidden"
-          >
+  return (
+    <div className="w-full md:w-1/2">
+      <div className="flex flex-col gap-4">
+        {images.map((block, i) => (
+          <div key={i} className="w-full rounded-lg overflow-hidden">
             <Image
-              src={images[imageIndex]}
-              alt={`${staticContent.title} ${imageIndex + 1}`}
+              src={block.image!}
+              alt={`${title} ${i + 1}`}
               width={800}
               height={600}
               className="w-full h-auto object-contain"
             />
           </div>
-        );
-        imageIndex++;
-      }
-    });
-
-    return <div className="flex flex-col gap-6 text-base">{content}</div>;
-  }
-
-  // No images, show regular content
-  return <AboutSection staticContent={staticContent} />;
-};
-
-const AboutSection = ({
-  staticContent,
-}: {
-  staticContent: SlugStaticContent;
-}) => {
-  return (
-    <div className="flex flex-col gap-4 text-base">
-      <h1 className="text-2xl font-bold">{staticContent.title}</h1>
-      <h2 className="text-xl font-bold">{staticContent.subtitle}</h2>
-      <p
-        dangerouslySetInnerHTML={{ __html: staticContent.content }}
-        className="text-base whitespace-pre-line text-justify"
-      />
+        ))}
+      </div>
     </div>
   );
-};
+}
+
+function DesktopText({ blocks }: { blocks: ContentBlock[] }) {
+  const textBlocks = blocks.filter((b) => b.blockType === 'text' && b.text);
+
+  return (
+    <div className="flex flex-col gap-4">
+      {textBlocks.map((block, i) => (
+        <div key={i} className="flex flex-col gap-4">
+          {i > 0 && <Divider />}
+          <p
+            className="text-base whitespace-pre-line text-justify"
+            dangerouslySetInnerHTML={{ __html: formatText(block.text!) }}
+          />
+        </div>
+      ))}
+    </div>
+  );
+}
