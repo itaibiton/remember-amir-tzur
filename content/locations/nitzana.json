@@ -66,6 +66,15 @@
           "image": "/images/אמיר - תמונה 5 (1).jpg"
         }
       ]
+    },
+    {
+      "accordionTitle": "מולי הגבר",
+      "blocks": [
+        {
+          "blockType": "text",
+          "text": "מולי מולי מולי הדוס"
+        }
+      ]
     }
   ],
   "afterAccordionBlocks": [
