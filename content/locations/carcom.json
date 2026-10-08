@@ -4,6 +4,7 @@
   "slug": "carcom",
   "lat": "32.9268097",
   "long": "35.6104549",
+  "disabled": false,
   "contentBlocks": [
     {
       "blockType": "image",
